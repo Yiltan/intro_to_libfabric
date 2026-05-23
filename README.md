@@ -21,3 +21,9 @@ been useful as a learning tool.
 ./configure
 make
 ```
+
+## Run Examples
+
+```
+./src/fi_getinfo
+```
