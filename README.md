@@ -3,6 +3,8 @@ SPDX-License-Identifier: MIT
 SPDX-FileCopyrightText: (c) 2026 Yiltan Temucin <yiltan.temucin@gmail.com>
 -->
 
+[![CI](https://github.com/Yiltan/intro_to_libfabric/actions/workflows/ci.yml/badge.svg)](https://github.com/Yiltan/intro_to_libfabric/actions/workflows/ci.yml)
+
 # Intro to libfabric
 
 An introductory C project using libfabric.

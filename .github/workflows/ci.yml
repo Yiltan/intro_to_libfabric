@@ -1,0 +1,28 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  ci:
+    strategy:
+      matrix:
+        include:
+          - {os: ubuntu-24.04, cc: gcc}
+          - {os: ubuntu-24.04, cc: clang}
+          - {os: ubuntu-24.04, cc: gcc, san: 1}
+          - {os: ubuntu-24.04, cc: clang , san: 1}
+          - {os: fedora, cc: gcc,   fed: 1, ctr: fedora:latest}
+          - {os: fedora, cc: clang, fed: 1, ctr: fedora:latest}
+          # ASAN Fails on Fedora
+          # - {os: fedora, cc: gcc,   fed: 1, san: 1, ctr: fedora:latest}
+          # - {os: fedora, cc: clang, fed: 1, san: 1, ctr: fedora:latest}
+    runs-on: ${{ matrix.os == 'fedora' && 'ubuntu-24.04' || matrix.os }}
+    container: ${{ matrix.ctr }}
+    env:
+      CC: ${{ matrix.cc }}
+      CFLAGS: ${{ matrix.san && '-fsanitize=address,undefined -fno-omit-frame-pointer' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: ${{ matrix.fed &&
+                'dnf install -y autoconf automake libtool pkgconfig libfabric-devel clang findutils' ||
+                'sudo apt-get update && sudo apt-get install -y autoconf automake libtool pkg-config libfabric-dev clang' }}
+      - run: ./autogen.sh
+      - run: ./configure && make distcheck

@@ -4,6 +4,7 @@
 *.log
 *.o
 *.trs
+*.tar.gz
 .deps/
 Makefile
 Makefile.in

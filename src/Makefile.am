@@ -17,6 +17,7 @@ fi_cq_open_SOURCES = fi_cq_open.c
 fi_ep_bind_SOURCES = fi_ep_bind.c
 fi_enable_SOURCES = fi_enable.c
 
+EXTRA_DIST = util.h
 AM_CFLAGS = $(LIBFABRIC_CFLAGS)
 LDADD = $(LIBFABRIC_LIBS)
 
