@@ -11,8 +11,8 @@ int main(void)
   int err;
 
   err = fi_getinfo(FI_VERSION(1, 5), NULL, NULL, 0, NULL, &info);
-  FI_CHECK_ZERO(err, "fi_getinfo");
-  FI_CHECK_NNULL(info, "No fabric providers found.\n");
+  FI_CHECK_ZERO(err, "fi_getinfo", error);
+  FI_CHECK_NNULL(info, "No fabric providers found.\n", error);
 
   for (struct fi_info *cur = info; cur; cur = cur->next) {
     printf("Provider: %s\n", cur->fabric_attr->prov_name);
@@ -31,4 +31,6 @@ int main(void)
 
   fi_freeinfo(info);
   return 0;
+error:
+  return 1;
 }
