@@ -1,3 +1,4 @@
+*.btr
 *.la
 *.lo
 *.log
@@ -8,6 +9,7 @@ Makefile
 Makefile.in
 aclocal.m4
 autom4te.cache/
+build/*
 compile
 config.h
 config.h.in
@@ -21,6 +23,5 @@ install-sh
 libtool
 missing
 src/.deps/
-src/fi_getinfo
 stamp-h1
 test-driver

@@ -18,7 +18,9 @@ been useful as a learning tool.
 
 ```
 ./autogen.sh
-./configure
+mkdir build
+cd build
+../configure
 make
 ```
 

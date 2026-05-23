@@ -10,6 +10,7 @@ int main(void)
   struct fi_info *info = NULL;
   int err;
 
+  /* fi_getinfo gets information about the fabric but it does not initialize anything */
   err = fi_getinfo(FI_VERSION(1, 5), NULL, NULL, 0, NULL, &info);
   FI_CHECK_ZERO(err, "fi_getinfo", error);
   FI_CHECK_NNULL(info, "No fabric providers found.\n", error);
