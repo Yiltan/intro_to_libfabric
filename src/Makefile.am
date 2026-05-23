@@ -6,3 +6,4 @@ hello_SOURCES = main.c
 fi_getinfo_SOURCES = fi_getinfo.c
 AM_CFLAGS = $(LIBFABRIC_CFLAGS)
 LDADD = $(LIBFABRIC_LIBS)
+TESTS = $(bin_PROGRAMS)

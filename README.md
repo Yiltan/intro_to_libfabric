@@ -27,3 +27,9 @@ make
 ```
 ./src/fi_getinfo
 ```
+
+or run as test suite
+
+```
+make check
+```
