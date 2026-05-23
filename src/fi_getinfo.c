@@ -1,24 +1,18 @@
 // SPDX-License-Identifier: MIT
 // SPDX-FileCopyrightText: (c) 2026 Yiltan Temucin <yiltan.temucin@gmail.com>
 
+#include "util.h"
 #include <stdio.h>
 #include <rdma/fabric.h>
 
 int main(void)
 {
   struct fi_info *info = NULL;
-  int ret;
+  int err;
 
-  ret = fi_getinfo(FI_VERSION(1, 5), NULL, NULL, 0, NULL, &info);
-  if (ret) {
-    fprintf(stderr, "fi_getinfo failed: %s\n", fi_strerror(-ret));
-    return 1;
-  }
-
-  if (!info) {
-    printf("No fabric providers found.\n");
-    return 0;
-  }
+  err = fi_getinfo(FI_VERSION(1, 5), NULL, NULL, 0, NULL, &info);
+  FI_CHECK_ZERO(err, "fi_getinfo");
+  FI_CHECK_NNULL(info, "No fabric providers found.\n");
 
   for (struct fi_info *cur = info; cur; cur = cur->next) {
     printf("Provider: %s\n", cur->fabric_attr->prov_name);
