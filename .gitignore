@@ -19,4 +19,5 @@ install-sh
 libtool
 missing
 src/.deps/
+src/fi_getinfo
 stamp-h1
