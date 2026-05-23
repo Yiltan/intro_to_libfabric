@@ -5,10 +5,12 @@ Each builds on concepts introduced by the previous.
 
 | #  | File              | Introduces                                      |
 |----|-------------------|-------------------------------------------------|
-| 1  | `fi_getinfo.c`    | `fi_getinfo()`, provider/device enumeration     |
+| 1  | `fi_getinfo.c`    | `fi_getinfo()` — provider/device enumeration    |
 | 2  | `fi_fabric.c`     | `fi_fabric()` — open a fabric                   |
 | 3  | `fi_domain.c`     | `fi_domain()` — open a domain                   |
 | 4  | `fi_endpoint.c`   | `fi_endpoint()` — create an endpoint            |
 | 5  | `fi_cq_open.c`    | `fi_cq_open()` — completion queue               |
-| 6  | `fi_ep_bind.c`    | `fi_ep_bind()` — bind CQ to endpoint            |
-| 7  | `fi_enable.c`     | `fi_enable()` — enable a connected endpoint     |
+| 6  | `fi_av_open.c`    | `fi_av_open()` — address vector                 |
+| 7  | `fi_mr_reg.c`     | `fi_mr_reg()` — memory region                   |
+| 8  | `fi_ep_bind.c`    | `fi_ep_bind()` — bind resources to endpoint     |
+| 9  | `fi_enable.c`     | `fi_enable()` — enable endpoint                 |

@@ -7,7 +7,9 @@ bin_PROGRAMS = fi_getinfo  \
 			   fi_endpoint \
 			   fi_cq_open  \
 			   fi_ep_bind  \
-			   fi_enable
+			   fi_enable   \
+			   fi_av_open  \
+			   fi_mr_reg
 
 fi_getinfo_SOURCES = fi_getinfo.c
 fi_fabric_SOURCES = fi_fabric.c
@@ -16,6 +18,8 @@ fi_endpoint_SOURCES = fi_endpoint.c
 fi_cq_open_SOURCES = fi_cq_open.c
 fi_ep_bind_SOURCES = fi_ep_bind.c
 fi_enable_SOURCES = fi_enable.c
+fi_av_open_SOURCES = fi_av_open.c
+fi_mr_reg_SOURCES = fi_mr_reg.c
 
 EXTRA_DIST = util.h
 AM_CFLAGS = $(LIBFABRIC_CFLAGS)
